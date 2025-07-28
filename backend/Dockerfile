@@ -13,7 +13,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY tests/dataset/img1.jpg tests/dataset/img1.jpg
-RUN python -c "from deepface import DeepFace; DeepFace.analyze(img_path='tests/dataset/img1.jpg', actions=['emotion'])" || true
+RUN python -c "from deepface import DeepFace; DeepFace.analyze(img_path='tests/dataset/ride.jpg', actions=['emotion'])" || true
 
 
 # Copia solo il codice
