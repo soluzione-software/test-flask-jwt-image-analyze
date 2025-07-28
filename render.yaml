@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: emotion-api
+    env: docker
+    region: frankfurt  # o la regione che preferisci
+    plan: free
+    dockerfilePath: backend/Dockerfile
+    buildCommand: ""
+    startCommand: ""
+    rootDir: backend
+    autoDeploy: true
