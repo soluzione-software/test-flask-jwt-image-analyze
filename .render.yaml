@@ -4,7 +4,7 @@ services:
     env: docker
     region: frankfurt
     plan: free
-    dockerfilePath: backend/Dockerfile
+    dockerfilePath: Dockerfile
     rootDir: backend
     buildCommand: ""
     startCommand: ""
