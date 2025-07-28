@@ -15,7 +15,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copia solo il codice
 COPY . .
 
-EXPOSE 5000
-
-# Avvio con server WSGI
-CMD ["gunicorn", "-w", "2", "-b", "0.0.0.0:5000", "main:app"]
+CMD ["python", "main.py"]
