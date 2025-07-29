@@ -25,7 +25,7 @@ headers = {
 }
 files = {
     # 'image': open('images/face.png', 'rb')
-    'image': open('images/ride.jpg', 'rb')
+    'image': open('images/smorfia.jpg', 'rb')
 }
 
 response = requests.post(ANALYZE_URL, headers=headers, files=files)

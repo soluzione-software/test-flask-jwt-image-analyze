@@ -8,11 +8,17 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /app
 
-# Copia requirements separatamente per caching intelligente
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+# Copia prima requirements e (opzionalmente) i wheels locali
+COPY requirements.txt ./
+COPY wheels/ ./wheels/
 
-# Copia solo il codice
+# Usa i pacchetti locali se presenti, altrimenti pip da internet
+RUN pip install --find-links=./wheels --no-index -r requirements.txt || \
+    pip install -r requirements.txt
+
+# Copia il resto dell'app
 COPY . .
+
+EXPOSE 5000
 
 CMD ["python", "main.py"]

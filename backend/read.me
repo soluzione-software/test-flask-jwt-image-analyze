@@ -9,3 +9,10 @@ pip check
 
 
 python main.py
+
+per scaricare pacchetti (per ridurre il tempo di build):
+docker run --rm -v ${PWD}:/app -w /app python:3.10-slim bash -c "
+  apt-get update && apt-get install -y libgl1 libglib2.0-0 &&
+  pip install --upgrade pip &&
+  pip download -r requirements.txt -d wheels
+"

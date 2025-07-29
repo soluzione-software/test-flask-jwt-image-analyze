@@ -9,8 +9,11 @@ import os
 SECRET_KEY = os.environ.get("SECRET_KEY", "supersecretkey")
 
 # Load users from JSON file
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+USER_FILE = os.path.join(BASE_DIR, "users.json")
+
 def load_users():
-    with open("users.json") as f:
+    with open(USER_FILE) as f:
         data = json.load(f)
     return data["users"]
 
