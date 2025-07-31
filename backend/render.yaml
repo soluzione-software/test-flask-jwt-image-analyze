@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: backend-emotion-api
+    runtime: docker
+    image: soluzionesoftware/backend-emotion-api:latest
+    plan: free
+    region: frankfurt
+    envVars:
+      - key: PORT
+        value: 5000  # o la porta che il tuo app usa internamente
